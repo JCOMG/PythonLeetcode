@@ -6,15 +6,12 @@
 #         self.right = right
 class Solution:
     def invertTree(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
-        if not root:
-            return None 
-        
-        # 現在的 root = 4 
+        if root is None:
+            return None
         
         temp = root.left 
         root.left = root.right
         root.right = temp 
-        
         
         
         self.invertTree(root.left)
@@ -22,6 +19,5 @@ class Solution:
         self.invertTree(root.right)
         
         return root
-            
         
         
